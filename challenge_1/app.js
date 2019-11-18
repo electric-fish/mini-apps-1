@@ -51,6 +51,7 @@ const loadBoard = () => {
 }
 
 const checkTie = () => {
+  if (boardActive) {
     var count = 0;
     for (var i = 0; i < BOARD_LENGTH; i++) {
       for (var j = 0; j < BOARD_LENGTH; j++) {
@@ -63,6 +64,7 @@ const checkTie = () => {
       winner = STATE_TIE;
       boardActive = false;
     }
+  }
 }
 
 const checkRow = (x) => {
