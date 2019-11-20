@@ -6,11 +6,16 @@
 // You may also assume that child records in the JSON will always be in a property called `children`.
 
 module.exports.objParser = (obj) => {
-  let properties = { 'uniqueId': [] };
+  let properties = { 'uniqueId': [], 'parentId': [] };
   var uniqueId = 0;
 
-  var objParserHelper = (data) => {
+  var objParserHelper = (data, parentId) => {
     properties['uniqueId'].push(uniqueId++);
+    if (parentId === 0) {
+      properties['parentId'].push('');
+    } else {
+      properties['parentId'].push(parentId);
+    }
 
     //--- enters each existing row property into property list ---//
     for (var key in data) {
@@ -37,12 +42,12 @@ module.exports.objParser = (obj) => {
     //--- iterate through children ---//
     if (data['children']) {
       for (var i = 0; i < data['children'].length; i++) {
-        objParserHelper(data['children'][i]);
+        objParserHelper(data['children'][i], uniqueId);
       }
     }
   }
 
-  objParserHelper(obj);
+  objParserHelper(obj, 0);
   return properties;
 }
 
@@ -57,10 +62,8 @@ module.exports.objPrinter = (obj) => {
     if (!isFirstProp) {
       result += ', ';
     }
-    if (key !== 'uniqueId') {
-      result += key;
-      isFirstProp = false;
-    }
+    result += key;
+    isFirstProp = false;
   }
   result += '\n';
 
@@ -71,10 +74,8 @@ module.exports.objPrinter = (obj) => {
       if(!isFirstProp) {
         result += ', ';
       }
-      if (key !== 'uniqueId') {
-        result += obj[key][i];
-        isFirstProp = false;
-      }
+      result += obj[key][i];
+      isFirstProp = false;
     }
     result += '\n';
   }
