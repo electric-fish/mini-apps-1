@@ -84,7 +84,7 @@ module.exports.objPrinter = (obj) => {
 
 module.exports.parser = (jsonData) => {
   let newObj = this.objParser(jsonData);
-  console.log(newObj);
+  // console.log(newObj);
 
   let csvStr = this.objPrinter(newObj);
   // console.log(csvStr);

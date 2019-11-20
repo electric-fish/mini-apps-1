@@ -12,9 +12,17 @@
     <p>JSON Data:</p>
     <!-- <form method="POST" action="/upload_json"> -->
     <form>
+        <input id="fileupload" type="file" accept=".json" />
+        <input type="submit" value="submit" onclick="submitFile();" />
+        <p />
+        - OR -
+        <p />
         <textarea id="jsonData"></textarea><br />
-        <input type="submit" value="Submit" />
+        <!-- <input type="submit" value="submit" /> -->
+        <input type="submit" value="submit" onclick="submitText();" />
     </form>
+    <p />
+    -
     <p />
     <p>CSV Report:</p>
         <textarea id="csvData"></textarea>

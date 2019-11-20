@@ -18,8 +18,6 @@ app.use(express.static('client'));
 app.post('/upload_json', (req, res) => {
   let csvStr = jsoncsvparser.parser(req.body);
   // console.log(csvStr);
-  // res.status(200).send('hi from server');
-  // res.write(csvStr);
   res.status(200).send(csvStr);
 });
 
