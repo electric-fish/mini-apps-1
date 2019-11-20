@@ -21,6 +21,12 @@ app.post('/upload_json', (req, res) => {
   res.status(200).send(csvStr);
 });
 
+app.post('/upload_file', (req, res) => {
+  console.log(req.body);
+  let csvStr = jsoncsvparser.parser(req.body);
+  res.status(200).send(csvStr);
+});
+
 if (!module.parent) {
   app.listen(app.get('port'));
   console.log('Listening on', app.get('port'));

@@ -1,4 +1,3 @@
-
 const server = 'http://localhost:3000';
 
 $(document).ready(function () {
@@ -6,6 +5,8 @@ $(document).ready(function () {
     e.preventDefault();
   });
 });
+
+
 
 let submitText = () => {
   let jsonStr = document.getElementById("jsonData").value;
@@ -23,13 +24,32 @@ let submitText = () => {
   })
   .then ( (result) => {
     document.getElementById("csvData").value = result;
+    console.log("Complete JSON text to CSV text conversion.");
   });
 }
+
+
 
 let submitFile = () => {
   const jsonFile = document.getElementById('fileupload').files[0];
   if (!jsonFile) {
     console.error('File not selected.');
+    return;
   }
-  console.log(jsonFile);
+
+  fetch (server + '/upload_file', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      accept: 'application/json'
+    },
+    body: jsonFile,
+  })
+  .then ( (response) => {
+    return response.text();
+  })
+  .then ( (result) => {
+    document.getElementById("csvData").value = result;
+    console.log("Complete JSON file to CSV text conversion.");
+  });
 }
