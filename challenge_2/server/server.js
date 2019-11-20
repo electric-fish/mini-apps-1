@@ -1,4 +1,5 @@
 var jsoncsvparser = require('./json-csv-parser.js');
+var mockdb = require('./mock-db');
 
 var express = require('express');
 var cors = require('cors');
@@ -17,14 +18,18 @@ app.use(express.static('client'));
 
 app.post('/upload_json', (req, res) => {
   let csvStr = jsoncsvparser.parser(req.body);
-  // console.log(csvStr);
+  mockdb.data = csvStr;
   res.status(200).send(csvStr);
 });
 
 app.post('/upload_file', (req, res) => {
-  console.log(req.body);
   let csvStr = jsoncsvparser.parser(req.body);
+  mockdb.data = csvStr;
   res.status(200).send(csvStr);
+});
+
+app.get('/get_csv', (req, res) => {
+  res.status(200).send(mockdb.data);
 });
 
 if (!module.parent) {

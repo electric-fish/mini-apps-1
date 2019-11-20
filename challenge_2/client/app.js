@@ -1,10 +1,19 @@
 const server = 'http://localhost:3000';
 
-$(document).ready(function () {
-  $('form').on('submit', function(e){
-    e.preventDefault();
+window.onload = () => {
+  fetch (server + '/get_csv', {
+    method: 'GET',
+    headers: {
+      accept: 'application/json'
+    }
+  })
+  .then ( (response) => {
+    return response.text();
+  })
+  .then ( (result) => {
+    document.getElementById("csvData").value = result;
   });
-});
+};
 
 
 
@@ -23,7 +32,8 @@ let submitText = () => {
     return response.text();
   })
   .then ( (result) => {
-    document.getElementById("csvData").value = result;
+    // document.getElementById("csvData").value = result;
+    latestCSV = result;
     console.log("Complete JSON text to CSV text conversion.");
   });
 }
@@ -32,6 +42,7 @@ let submitText = () => {
 
 let submitFile = () => {
   const jsonFile = document.getElementById('fileupload').files[0];
+  
   if (!jsonFile) {
     console.error('File not selected.');
     return;
@@ -50,6 +61,7 @@ let submitFile = () => {
   })
   .then ( (result) => {
     document.getElementById("csvData").value = result;
+    latestCSV = result;
     console.log("Complete JSON file to CSV text conversion.");
   });
 }

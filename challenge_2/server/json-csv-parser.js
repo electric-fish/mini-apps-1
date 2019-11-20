@@ -55,7 +55,7 @@ module.exports.objPrinter = (obj) => {
   //--- prints property row ---//
   for (var key in obj) {
     if (!isFirstProp) {
-      result += ',';
+      result += ', ';
     }
     if (key !== 'uniqueId') {
       result += key;
@@ -69,7 +69,7 @@ module.exports.objPrinter = (obj) => {
     isFirstProp = true;
     for (var key in obj) {
       if(!isFirstProp) {
-        result += ',';
+        result += ', ';
       }
       if (key !== 'uniqueId') {
         result += obj[key][i];
