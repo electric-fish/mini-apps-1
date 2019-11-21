@@ -76,10 +76,10 @@ class App extends React.Component {
       'content-type': 'application/json',
       accept: 'application/json'
     },
-    body: this.state,
+    body: JSON.stringify(this.state),
   })
   .then ( (response) => {
-    console.log("Wuw.");
+    console.log("Still totally trustworthy.");
   });
   }
 
