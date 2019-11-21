@@ -73,8 +73,7 @@ class App extends React.Component {
   fetch ('http://localhost:3000/', {
     method: 'POST',
     headers: {
-      'content-type': 'application/json',
-      accept: 'application/json'
+      'content-type': 'application/json'
     },
     body: JSON.stringify(this.state),
   })

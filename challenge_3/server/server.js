@@ -1,6 +1,5 @@
 var express = require('express');
 const path = require('path');
-// var cors = require('cors');
 var parser = require('body-parser');
 
 var app = express();
@@ -8,7 +7,6 @@ module.exports.app = app;
 
 app.set('port', 3000);
 
-// app.use(cors());
 app.use(parser.json());
 // app.use(parser.urlencoded({ extended: true }));
 
