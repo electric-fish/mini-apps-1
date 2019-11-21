@@ -1,0 +1,48 @@
+body {
+    background-color: #222;
+    color: #bbbbcc;
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 20px;
+    color: #ccccbb;
+}
+
+div {
+    font-size: 16px;
+    color: #ccccbb;
+}
+ 
+.buttonCheckout {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 24px;
+    color: #999990;
+    background-color: #333;
+    font-family: 'Nunito', sans-serif;
+}
+
+.buttonNext {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    color: #777770;
+    background-color: #333;
+    font-family: 'Nunito', sans-serif;
+
+}
+    
+textarea {
+    border: 1px solid rgb(114, 114, 114);
+    border-radius: 2px;
+    color: rgb(174, 190, 224);
+    font-size: 12px;
+    background-color: rgb(44, 44, 44);
+    color: rgb(155, 155, 155);
+    width: 200px;
+    height: 16px;
+}
