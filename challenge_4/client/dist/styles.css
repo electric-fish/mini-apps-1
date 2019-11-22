@@ -1,0 +1,31 @@
+body {
+    background-color: #252525;
+    color: #bbbbcc;
+    font-size: 24px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1 {
+    color: #bbbbcc;
+    font-size: 24px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 20px 20px 20px 20px;
+}
+
+td {
+    border: 1px solid #888;
+    border-collapse: true;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+button {
+    border: none;
+    color: #bbbbcc;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #444444;
+    margin: 20px 20px 20px 20px;
+    padding: 5px;
+}
